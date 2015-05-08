@@ -1,0 +1,33 @@
+<title>Family of Selector Plugins</title>
+<body>
+    <div class="images"><img src="images/girl.png"
+        /><img src="images/nerd.png"
+        /><img src="images/openwest-small.png"
+        /><img src="images/radio.png"
+        /><img src="images/about-to-get-real.png"/>
+    </div>
+    <div>
+        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span><br>
+        <span>ms</span>
+    </div>
+</body>
+<script id="source">
+    (function($){
+        function orientation(el){
+            var w = $(el).width();
+            var h = $(el).height();
+            return w==h ? 0 : (w<h ? -1 : 1);
+        }
+        $.expr[':'].landscape  = function(el) {
+            return orientation(el)>0;
+        };
+        $.expr[':'].portrait  = function(el) {
+            return orientation(el)<0;
+        };
+    }(jQuery));
+</script>
+<script id='0' type="application/text">$('*').css('outline','');</script>
+<script id='1' type="application/text">$('img:landscape').css('outline','4px dashed red')</script>
+<script id='2' type="application/text">$('img:portrait').css('outline','8px dotted blue')</script>
+<script id='3' type="application/text">$('img:not(:landscape):not(:portrait)').css('outline','4px solid green')</script>
+<script id='9' type="application/text">$('#content').keepMiddled(function(){return $('#command-line').offset().top});</script>

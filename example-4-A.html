@@ -1,0 +1,32 @@
+<title>Utility Method Plugin</title>
+<body>
+<div id="text">
+    <i>Wait for it... </i>
+</div>
+<div class="images">
+    <img id="surprise" style="opacity: 0;" src="images/bomb-cake.png"/>
+</div>
+</body>
+<script id="source">
+    (function($){
+        $.tymer = function (options) {
+            var opts = $.extend({}, $.tymer.defaults, options);
+            var deferred = $.Deferred();
+            var finish = setTimeout(deferred.resolve, opts.duration);
+            var progress = setInterval(deferred.notify, opts.duration / opts.divisions);
+            deferred.done(function () {
+                clearTimeout(finish);
+                clearInterval(progress);
+            });
+            return deferred.promise();
+        };
+        $.tymer.defaults = {duration: 5000, divisions: 10};
+    }(jQuery));
+    function tick(){ $('#text').append('tick '); }
+    function boom(){ $('#text').append('boom '); $('#surprise').css('opacity',1);}
+</script>
+<script id='0' type="application/text">$('#text').html(''); $('#surprise').css('opacity',0);</script>
+<script id='1' type="application/text">$.tymer().progress(tick).done(boom);</script>
+<script id='2' type="application/text">$.tymer({duration:2000}).progress(tick).then(boom);</script>
+<script id='3' type="application/text">$.tymer.defaults.duration = 1000; $.tymer.defaults.divisions = 20;</script>
+<script id='4' type="application/text">$.tymer().progress(tick).done(boom);</script>

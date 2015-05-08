@@ -1,0 +1,18 @@
+<title>Super Simple Plugin</title>
+<body>
+    <div>
+        <img src="images/openwest-small.png"/>
+    </div>
+    <div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    </div>
+</body>
+<script id="source">
+    jQuery.fn.outline = function(options) {
+        return this.css('outline', options||'4px dashed red');
+    };
+</script>
+<script id='0' type="application/text">$('*').css('outline','');</script>
+<script id='1' type="application/text">$('img,p').outline();</script>
+<script id='2' type="application/text">$('img').outline('.3em dashed blue');</script>
+

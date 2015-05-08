@@ -1,0 +1,35 @@
+<title>Custom Animation - All Together</title>
+<body>
+    <div>
+        <img src="images/openwest-small.png"/>
+    </div>
+</body>
+<script id="source">
+    (function($){
+        $.fn.spin = function(options) {
+            var opts = $.extend({}, jQuery.fn.spin.defaults, options);
+            return this.prop('x_spin',0)
+                .animate({ 'x_spin': 1 },{
+                    step: function(now, fx) {
+                        con.log(fx);
+                        var a = opts.times * now;
+                        $(fx.elem).css('transform','rotate('+a+'turn)');
+                    },
+                    duration: 60000*opts.times/opts.rpm,
+                    easing: opts.easing
+                });
+        };
+        $.fn.spin.defaults = { times: 1, rpm: 25, easing: 'linear' }
+    }(jQuery));
+</script>
+<script id="A">
+    $.fn.rotate = function(angle, options) {
+        var a = $.isNumeric(angle)?angle+'deg':angle||'45deg';
+        return this.css('transform', 'rotate('+a+')');
+    };
+</script>
+<script id='0' type="application/text">$('*').css('transform','');</script>
+<script id='1' type="application/text">$('img').spin();</script>
+<script id='2' type="application/text">$('img').spin({times:3});</script>
+<script id='3' type="application/text">$('img').spin({times:2,rpm:50});</script>
+<script id='3' type="application/text">$('img').spin({times:0.25,rpm:1});</script>

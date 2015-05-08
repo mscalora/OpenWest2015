@@ -1,0 +1,24 @@
+<title>Promise Client - Error Handler</title>
+<body>
+<div id="demo1">
+    <div><img src="images/placeholder.png"/></div>
+    <h4 class="caption"><i>Wait for it... </i></h4>
+</div>
+</body>
+<script id="source">
+    function demoPromise2(url) {
+        var flickr = 'https://api.flickr.com/services/feeds/photos_public.gne?format=json&jsoncallback=?';
+        return $.getJSON(url || flickr)
+            .done(function(data){
+                var i = data.items[0];
+                $('#demo1 img').attr('src', i.media.m);
+                $('#demo1 .caption').text(i.author.replace(/.*\((.*)\).*/,'$1'));
+            }).fail(function(jqXHR, textStatus, errorThrown){
+                $('#demo1 img').attr('src', 'images/fail-whale.png');
+                $('#demo1 .caption').text(textStatus);
+            });
+    }
+</script>
+<script id='0' type="application/text">$('#demo1 img').attr('src', 'images/placeholder.png'); $('#demo1 .caption').html('<i>Wait...</i>');</script>
+<script id='1' type="application/text">demoPromise2();</script>
+<script id='2' type="application/text">demoPromise2('http://local.org');</script>

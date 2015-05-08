@@ -1,0 +1,27 @@
+<title>Plugin With Defaults</title>
+<body>
+    <div>
+        <img src="images/openwest-small.png"/>
+    </div>
+    <div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    </div>
+</body>
+<script id="source">
+    jQuery.fn.outline = function(options) {
+        var opts = $.extend({}, jQuery.fn.outline.defaults, options||{});
+        return this.css({
+            outlineColor: opts.color,
+            outlineStyle: opts.style,
+            outlineWidth: opts.width,
+            outlineOffset: opts.offset
+        });
+    };
+    jQuery.fn.outline.defaults = {
+        color: 'red', style: 'dashed', width: '4px', offset: ''
+    }
+</script>
+<script id='0' type="application/text">$('*').css('outline','');</script>
+<script id='1' type="application/text">$('img,p').outline({width:8});</script>
+<script id='2' type="application/text">jQuery.fn.outline.defaults.color = 'blue';</script>
+<script id='3' type="application/text">$('img,p').outline();</script>

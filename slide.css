@@ -1,0 +1,19 @@
+#slide {
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 38px;
+}
+#slide h1, 
+#slide h2,
+#slide h3,
+#slide h4, 
+#slide h5 {
+    margin: 0.15em 0;
+}
+
+#slide ul {
+    margin: 0.2em 0;
+    display: inline-block;
+    text-align: left;
+    font-size: 115%;
+}

@@ -1,0 +1,24 @@
+<title>Simple Selector Plugin</title>
+<body>
+    <div class="images">
+        <img src="images/android-small.png"/>
+        <img src="images/openwest-small.png"/>
+        <img src="images/apple-small.png"/>
+    </div>
+    <div>
+        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span><br>
+        <span>ms</span><br/>
+        <!--
+        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquam atque corporis ducimus incidunt ipsam ipsum maiores maxime molestias natus odio praesentium provident quos, sit sunt tempore unde veritatis voluptatibus.</span>
+        -->
+    </div>
+</body>
+<script id="source">
+    jQuery.expr[':'].square  = function(el) {
+        var ratio = $(el).width()/$(el).height();
+        return ratio==1;
+    };
+</script>
+<script id='0' type="application/text">$('*').css('outline','');</script>
+<script id='1' type="application/text">$('img:square').css('outline','4px dashed red');</script>
+<script id='2' type="application/text">$('img:not(:square)').css('outline','4px dotted blue');</script>

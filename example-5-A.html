@@ -1,0 +1,17 @@
+<title>Custom Animation - API</title>
+<body>
+    <div>
+        <img src="images/openwest-small.png"/>
+    </div>
+</body>
+<script id="source">
+    (function($){
+        $.fn.spin = function(){};
+        
+        $.fn.spin.defaults = {
+            times: 1,
+            rpm: 25,
+            easing: 'linear'
+        }
+    }(jQuery));
+</script>

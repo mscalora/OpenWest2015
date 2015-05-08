@@ -1,0 +1,214 @@
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700|Source+Code+Pro:400,500);
+
+html, body {
+    margin: 0;
+    font-family: sans-serif;
+}
+html, input, button, #content, #title {
+    font-size: 48px;
+}
+html, #content, #slide {
+    background: wheat;
+    border-top: 1px solid wheat;
+    border-bottom: 1px solid wheat;
+}
+
+#container {
+    position: relative;
+}
+#output, input, button {
+    margin: .25em;
+    background: white;
+    border: 2px solid gray;
+}
+#cmd {
+    width: calc( 100% - 10em );
+    margin-bottom: 80px;
+    font-family: 'Ubuntu Mono', monospace;
+    padding: 2px 6px 2px 4px;
+}
+#command-line {
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+#title {
+    opacity: .25;
+    position: absolute;
+    top:0;
+    left: 0;
+    color: brown;
+    font-size: 75%
+;
+
+}
+#content {
+    position: relative;
+    padding: 0.25em;
+    text-align: center;
+    padding: .5em .25em .25em;   
+}
+#content > div {
+    margin-bottom: .33em;
+}
+#output {
+    white-space: pre;
+    font-family: 'Ubuntu Mono', monospace;
+    color: #0000dd;
+    font-size: 75%;
+    text-align: left;
+    overflow: auto;
+    background: #fff;
+}
+pre.hljs {
+    margin: 0;
+    padding: 0;
+}
+.error {
+    color: red;
+}
+.warn {
+    color: orange;
+}
+.debug {
+    color: purple;
+}
+.log {
+    color: darkblue;
+    font-weight: bold;
+}
+.trace {
+    color: darkgreen;
+}
+.result {
+    font-weight: bold;
+}
+.response {
+    white-space: pre-wrap;
+}
+.images img {
+    margin: .25em;
+}
+
+#fader {
+    height: 1.5em;
+    background: linear-gradient(to bottom, rgba(245, 222, 179, 1), rgba(245, 222, 179, 0));
+    position: relative;
+}
+
+#command-line {
+    z-index: 1000;
+}
+#command-line.top {
+    z-index: 2400;
+}
+#fader {
+    z-index: 2000;
+}
+#container {
+    z-index: 2100;
+    border-top: 1px solid wheat;
+}
+#content, #slide {
+    z-index: 2200;
+}
+#title {
+    x-index: 2500
+}
+#history {
+    z-index: 3000;
+}
+
+#command-line,
+#command-line *{
+    outline-style: none !important;
+}
+.echo:before {
+    content: ">";
+}
+#history {
+    display: none;
+    max-height: calc( 100% - 2em );
+    max-width: calc( 100% - 2em );
+    min-width: 12em;
+}
+.history {
+    color: #666;
+    position: relative;
+}
+.history:hover i {
+    color: #000;
+}
+#history.open {
+    display: block;
+    position: fixed;
+    left: 1em;
+    bottom: 1em;
+    background: #888;
+}
+
+#history .item {
+    color: #000;
+    padding: 4px 8px;
+    text-align: left;
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 90%;
+    white-space: nowrap;
+    max-width: 100%;
+}
+#history .item:hover {
+    color: #fff;
+    background: #000;
+}
+
+.history * ,
+button {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+button[type=button]:before {
+    content: "Next";
+}
+
+button[type=button].prev:before {
+    content: "Prev";
+}
+
+#demo1 img {
+    max-height: 150px;
+}
+p {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+.highlight {
+    color: blue;
+}
+button:hover {
+    color: white;
+    background: gray;
+    border: 2px solid white;
+}
+button:active {
+    color: white;
+    background: black;
+    border: 2px solid white;
+}
+button{
+    transition: all 50ms;
+}
+#output:focus {
+    border-color: midnightblue;
+}
+
+note {
+    display: none;
+}
+
+input[type=text], button {
+    font-size: inherit;
+}

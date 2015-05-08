@@ -1,0 +1,33 @@
+<title>Selector Plugin With Args</title>
+<body>
+    <div class="images">
+        <img src="images/android-small.png"/>
+        <img src="images/openwest-small.png"/>
+        <img src="images/apple-small.png"/>
+    </div>
+    <div>
+        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span><br>
+        <span>ms</span>
+    </div>
+</body>
+<script id="source">
+    jQuery.expr[':'].squarish  = function(el, i, args) {
+        var w = $(el).width();
+        var h = $(el).height();
+        var ratio = w>h ? w/h : h/w;
+        return ratio<=parseFloat(args[3]||'1');
+    };
+</script>
+<script id='0' type="application/text">$('*').css('outline','');</script>
+<script id='1' type="application/text">$('img:squarish').outline('red');</script>
+<script id='2' type="application/text">$('img:squarish(1.2)').outline('blue');</script>
+<script id='3' type="application/text">$('img:not(:squarish(1.2))').outline('green');</script>
+<script id="helper1">
+    jQuery.fn.outline = function(color, style, width) {
+        return this.css({
+            outlineColor: color || 'red',
+            outlineStyle: style || 'dashed',
+            outlineWidth: width || '4px'
+        });
+    };
+</script>

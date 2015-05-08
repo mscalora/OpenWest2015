@@ -1,0 +1,26 @@
+<title>Custom Animation - Utility Command</title>
+<body>
+    <div>
+        <img src="images/openwest-small.png"/>
+    </div>
+</body>
+<script id="source">
+    (function($){
+        $.fn.spin = function(){ /* TODO: write code */ };
+
+        $.fn.rotate = function(angle, options) {
+            var a = $.isNumeric(angle)?angle+'deg':angle||'45deg';
+            return this.css('transform', 'rotate('+a+')');
+        };
+        $.fn.spin.defaults = {
+            times: 1,
+            rpm: 25,
+            easing: 'linear'
+        }
+    }(jQuery));
+</script>
+<script id='0' type="application/text">$('img').rotate(0);</script>
+<script id='1' type="application/text">$('img').rotate(45);</script>
+<script id='2' type="application/text">$('img').rotate('0.45turn');</script>
+
+

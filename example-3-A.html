@@ -1,0 +1,24 @@
+<title>Promise Client - Happy Path</title>
+<body>
+<div id="demo1">
+    <div><img src="images/placeholder.png"/></div>
+    <h4 class="caption"><i>Wait for it... </i></h4>
+</div>
+</body>
+<script id="source">
+    function demoPromise1(url) {
+        var flickr = 'https://api.flickr.com/services/feeds/photos_public.gne?format=json&jsoncallback=?';
+        return $.getJSON(url || flickr)
+            .done(function(data){
+                var i = data.items[0];
+                $('#demo1 img').attr('src', i.media.m);
+                $('#demo1 .caption').text(i.author.replace(/.*\((.*)\).*/,'$1'));
+            });
+    }
+</script>
+<script id='0' type="application/text">$('#text').html(''); $('#surprise').css('opacity',0);</script>
+<script id='1' type="application/text">demoPromise1();</script>
+<script id='2' type="application/text">demoPromise1().done(function(){speak($('.caption').text());});</script>
+<script id='3' type="application/text">url = "http://special/flickr.php?jsoncallback=?";</script>
+<script id='4' type="application/text">demoPromise1(url);</script>
+<script id='5' type="application/text">demoPromise1(url).then(function(){speak($('.caption').text());});</script>

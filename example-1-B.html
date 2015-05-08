@@ -1,0 +1,21 @@
+<title>Simple Plugin</title>
+<body>
+    <div>
+        <img src="images/openwest-small.png"/>
+    </div>
+    <div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    </div>
+</body>
+<script id="source">
+    jQuery.fn.outline = function(color, style, width) {
+        return this.css({
+            outlineColor: color || 'red',
+            outlineStyle: style || 'dashed',
+            outlineWidth: width || '4px'
+        });
+    };
+</script>
+<script id='0' type="application/text">$('*').css('outline','');</script>
+<script id='1' type="application/text">$('img,p').outline('green');</script>
+<script id='2' type="application/text">$('img').outline(null, 'dotted', '6mm');</script>

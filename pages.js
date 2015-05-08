@@ -15,7 +15,7 @@ var pages =
         'section', 'Twitter: @mscalora',
         'section', 'GitHub ID: mscalora',
         'section', 'GitHub Repo: https://github.com/mscalora/OpenWest2015',
-        'section', 'Live Site: <b>http://tinyurl.com/ijq-part2</b>',
+        'section', 'Live Site: <b>http://tinyurl.com/ij-part2</b>',
         'note', 'Poll: how many attended last year?',
         'note', 'Presentation on GitHub',
         'div', '<label style="font-size: 80%;"><input id="long" type="checkbox"/> long version</label>',

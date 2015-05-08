@@ -10,3 +10,5 @@ Run this site using Google Chrome
 * Highlight Line Up/Down: **Keypad-Plus** / **Keypad-Minus** or **Command-Up-Arrow** / **Command-Down-Arrow**
 * Change Console Font Size: **Control-Minus** / **Control-Plus**
 * Command History: **Up** / **Down**
+
+[Live Site URL: http://tinyurl.com/ijq-part2](http://tinyurl.com/ijq-part2)
